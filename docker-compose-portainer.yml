@@ -20,7 +20,7 @@ services:
     environment:
       - LLM_ENDPOINT=http://ollama:11434
     volumes:
-      - ${INSTALL_PATH:-.}/agents:/zeroclaw-data/workspace
+      - ${INSTALL_PATH:-.}/zeroclaw-config:/zeroclaw-data/workspace
     networks:
       - ai_net
 
