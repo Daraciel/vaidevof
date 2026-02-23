@@ -25,7 +25,7 @@ services:
       - ai_net
 
   picoclaw:
-    image: ghcr.io/sipeed/picoclaw:latest
+    image: sipeed/picoclaw:latest
     container_name: picoclaw
     restart: unless-stopped
     depends_on:
