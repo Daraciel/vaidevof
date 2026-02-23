@@ -1,0 +1,51 @@
+services:
+
+  ollama:
+    image: ollama/ollama:0.3.12
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    networks:
+      - ai_net
+
+  zeroclaw:
+    image: ghcr.io/zeroclaw-labs/zeroclaw:latest
+    container_name: zeroclaw
+    restart: unless-stopped
+    depends_on:
+      - ollama
+    environment:
+      - LLM_ENDPOINT=http://ollama:11434
+      - AGENTS_PATH=/app/agents
+      - PROJECT_PATH=/app/project
+    volumes:
+      - ./agents:/app/agents
+      - ./project:/app/project
+    networks:
+      - ai_net
+
+  picoclaw:
+    image: ghcr.io/sunwood-ai-labs/picoclaw:latest
+    container_name: picoclaw
+    restart: unless-stopped
+    depends_on:
+      - zeroclaw
+    environment:
+      - LLM_ENDPOINT=http://ollama:11434
+      - AGENTS_PATH=/app/agents
+      - PROJECT_PATH=/app/project
+    volumes:
+      - ./agents:/app/agents
+      - ./project:/app/project
+    networks:
+      - ai_net
+
+networks:
+  ai_net:
+    driver: bridge
+
+volumes:
+  ollama_models:

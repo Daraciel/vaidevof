@@ -1,0 +1,19 @@
+# Docker
+*.log
+docker-data/
+ollama_models/
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
