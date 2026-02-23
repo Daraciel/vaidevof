@@ -1,0 +1,26 @@
+# ============================================================
+# ZeroClaw - Configuración principal
+# ============================================================
+
+[workspace]
+path = "~/.zeroclaw/workspace"
+
+[model]
+provider = "ollama"
+model = "mistral"
+
+[secrets]
+encrypt = true
+key_file = "~/.zeroclaw/.secret_key"
+
+[logging]
+level = "info"
+format = "text"
+log_file = "~/.zeroclaw/zeroclaw.log"
+
+[agents]
+autoload = true
+hot_reload = true
+
+[tools]
+autoload = true

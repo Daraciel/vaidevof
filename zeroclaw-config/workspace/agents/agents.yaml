@@ -1,0 +1,6 @@
+agents:
+  - orchestrator.yaml
+  - spec.yaml
+  - dev.yaml
+  - design.yaml
+  - reviewer.yaml
