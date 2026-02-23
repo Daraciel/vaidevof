@@ -19,16 +19,13 @@ services:
       - ollama
     environment:
       - LLM_ENDPOINT=http://ollama:11434
-      - AGENTS_PATH=/app/agents
-      - PROJECT_PATH=/app/project
     volumes:
-      - ${INSTALL_PATH:-.}/agents:/app/agents
-      - ${INSTALL_PATH:-.}/siproject:/app/project
+      - ${INSTALL_PATH:-.}/agents:/zeroclaw-data/workspace
     networks:
       - ai_net
 
   picoclaw:
-    image: ghcr.io/sunwood-ai-labs/picoclaw:latest
+    image: ghcr.io/sipeed/picoclaw:latest
     container_name: picoclaw
     restart: unless-stopped
     depends_on:
