@@ -22,8 +22,8 @@ services:
       - AGENTS_PATH=/app/agents
       - PROJECT_PATH=/app/project
     volumes:
-      - ${INSTALL_PATH:-.}agents:/app/agents
-      - ${INSTALL_PATH:-.}project:/app/project
+      - ${INSTALL_PATH:-.}/agents:/app/agents
+      - ${INSTALL_PATH:-.}/siproject:/app/project
     networks:
       - ai_net
 
@@ -38,8 +38,8 @@ services:
       - AGENTS_PATH=/app/agents
       - PROJECT_PATH=/app/project
     volumes:
-      - ${INSTALL_PATH:-.}agents:/app/agents
-      - ${INSTALL_PATH:-.}project:/app/project
+      - ${INSTALL_PATH:-.}/agents:/app/agents
+      - ${INSTALL_PATH:-.}/project:/app/project
     networks:
       - ai_net
 
