@@ -12,13 +12,12 @@ services:
       - ai_net
 
   zeroclaw:
-    image: ghcr.io/zeroclaw-labs/zeroclaw:latest
+    image: ghcr.io/zeroclaw-labs/zeroclaw:v0.1.7
     container_name: zeroclaw
     restart: unless-stopped
     depends_on:
       - ollama
     environment:
-      - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
       - ${INSTALL_PATH:-.}/zeroclaw-config/workspace:/zeroclaw-data/workspace
       - ${INSTALL_PATH:-.}/zeroclaw-config/config.toml:/zeroclaw-data/.zeroclaw/config.toml
