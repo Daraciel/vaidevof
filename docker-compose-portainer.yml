@@ -18,6 +18,7 @@ services:
     depends_on:
       - ollama
     environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
       - ${INSTALL_PATH:-.}/zeroclaw-config/workspace:/zeroclaw-data/workspace
       - ${INSTALL_PATH:-.}/zeroclaw-config/config.toml:/zeroclaw-data/.zeroclaw/config.toml
