@@ -20,7 +20,7 @@ services:
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
-      - ${INSTALL_PATH:-.}/zeroclaw-config:/zeroclaw-data/workspace
+      - ${INSTALL_PATH:-.}/zeroclaw-config:/zeroclaw-data
     networks:
       - ai_net
 
